@@ -9,6 +9,7 @@ EAP Controller - https://www.tp-link.com/common/Spotlight/EAP_controller.html
 
 
 Running on the latest Phusion release (ubuntu 16.04), with EAP Controller v2.5.3
+ONLY X86!!!!!
 
 
 **Pull image**
@@ -44,10 +45,17 @@ docker run -d --net="host"  --privileged --name=eapcontroller -v /mylocal/direct
 
 * The owner of the config directory needs sufficent permissions (UUID 99 / GID 100). (For manual configs, backups etc on the host system)
 * Should be run with network "host" or "macvlan", so it can find the AP´s
-* Username and password will be linked to controller (if you restore a backup this will only restore AP,SSID,etc... settings, not the base controller username/pass)
+* Username and password will be linked to controller (if you restore a backup this will only restore AP,SSID,etc... settings, not the base controller username/pass()EAP limitation)
 * Always make an backup of your settings before a new release "EAP controller version"(for a reinstall with same version it´s not necessary)
+* If it dosen´t start make sure there is just one controller on the same subnet (EAP limitataion)
+* This buils is only X86 with TP-Links budeled binaries
 
 **Change notes**
 
 * 2018.02.16
 Initial release
+
+
+**Next**
+
+read through license and try to buindle it without mongodb/java to be platform intependant.
