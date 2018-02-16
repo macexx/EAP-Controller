@@ -1,4 +1,4 @@
-# Builds a docker image for a OpenVPN Access Server
+# Builds a docker image for TP-Link´s  EAP Controller
 From phusion/baseimage:latest
 MAINTAINER Mace Capri <macecapri@gmail.com>
 
