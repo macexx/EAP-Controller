@@ -40,6 +40,7 @@ cat <<'EOT' > /etc/my_init.d/00_config.sh
 
 mkdir -p /config/logs
 mkdir -p /config/data
+mkdir -p /config/keystore
 
 # Checking if previous configuration exists
 
@@ -47,7 +48,7 @@ if [ -d "/config/data/map" ]; then
   echo "Config exists, importing previous configuration!"
   rm -r /opt/tplink/EAPController/data
   rm -r /opt/tplink/EAPController/logs
-  rm -t /opt/tplink/EAPController/keystore
+  rm -r /opt/tplink/EAPController/keystore
   ln -sf /config/data /opt/tplink/EAPController/data
   ln -sf /config/logs /opt/tplink/EAPController/logs
   ln -sf /config/keystore /opt/tplink/EAPController/keystore
