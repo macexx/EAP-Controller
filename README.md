@@ -15,7 +15,7 @@ ONLY X86!!!!!
 **Pull image**
 
 ```
-docker pull mace/EAP-Controller
+docker pull mace/eap-controller
 ```
 
 **Run container**
@@ -36,7 +36,7 @@ https://<host ip>:8088
 **Example**
 
 ```
-docker run -d --net="host"  --privileged --name=eapcontroller -v /mylocal/directory/fordata:/config -v /etc/localtime:/etc/localtime:ro mace/eapcontroller
+docker run -d --net="host"  --privileged --name=eapcontroller -v /mylocal/directory/fordata:/config -v /etc/localtime:/etc/localtime:ro mace/eap-controller
 ```
 
 
