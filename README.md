@@ -29,7 +29,8 @@ Use --net="host" or --net="macvlan0"
 **Web-UI**
 
 ```
-https://<host ip>:8088
+http://<host ip>:8088
+https://<host ip>:8043
 ```
 
 
@@ -54,8 +55,3 @@ docker run -d --net="host"  --privileged --name=eapcontroller -v /mylocal/direct
 
 * 2018.02.16
 Initial release
-
-
-**Next**
-
-read through license and try to buindle it without mongodb/java to be platform intependant.
