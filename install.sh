@@ -40,6 +40,7 @@ cat <<'EOT' > /etc/my_init.d/00_config.sh
 
 mkdir -p /config/logs
 mkdir -p /config/data
+mkdir -p /config/keystore
 
 # Checking if previous configuration exists
 
@@ -47,14 +48,18 @@ if [ -d "/config/data/map" ]; then
   echo "Config exists, importing previous configuration!"
   rm -r /opt/tplink/EAPController/data
   rm -r /opt/tplink/EAPController/logs
+  rm -r /opt/tplink/EAPController/keystore
   ln -sf /config/data /opt/tplink/EAPController/data
   ln -sf /config/logs /opt/tplink/EAPController/logs
+  ln -sf /opt/tplink/EAPController/keystore
 else
   echo "Copying configuration from install directory to host!"
   mv /opt/tplink/EAPController/data /config
   mv /opt/tplink/EAPController/logs /config
+  mv /opt/tplink/EAPController/keystore /config
   ln -sf /config/data /opt/tplink/EAPController/data
   ln -sf /config/logs /opt/tplink/EAPController/logs
+  ln -sf /config/keystore /opt/tplink/EAPController/keystore
 fi
 EOT
 
@@ -80,4 +85,3 @@ wget http://static.tp-link.com/resources/software/EAP_Controller_v2.5.3_linux_x6
 tar zxvf EAP_Controller_v2.5.3_linux_x64.tar.gz
 cd EAP_Controller_v2.5.3_linux_x64
 echo yes | ./install.sh
-

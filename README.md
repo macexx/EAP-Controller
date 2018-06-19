@@ -45,6 +45,7 @@ docker run -d --net="host"  --privileged --name=eapcontroller -v /mylocal/direct
 
 
 * The owner of the config directory needs sufficent permissions (UUID 99 / GID 100). (For manual configs, backups etc on the host system)
+* Mongodb dosent start if "/config" is mapped to an fuse mount, shfs, mergerfs etc...
 * Should be run with network "host" or "macvlan", so it can find the AP´s
 * Username and password will be linked to controller (if you restore a backup this will only restore AP,SSID,etc... settings, not the base controller username/pass()EAP limitation)
 * Always make an backup of your settings before a new release "EAP controller version"(for a reinstall with same version it´s not necessary)
@@ -52,6 +53,9 @@ docker run -d --net="host"  --privileged --name=eapcontroller -v /mylocal/direct
 * This buils is only X86 with TP-Links budeled binaries
 
 **Change notes**
+
+* 2018.06.19
+Add keystore to config for custom certs
 
 * 2018.02.16
 Initial release
