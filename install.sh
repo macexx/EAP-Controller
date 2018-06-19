@@ -41,6 +41,7 @@ cat <<'EOT' > /etc/my_init.d/00_config.sh
 mkdir -p /config/logs
 mkdir -p /config/data
 mkdir -p /config/keystore
+mkdir -p /config/cert
 
 # Checking if previous configuration exists
 
