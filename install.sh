@@ -61,6 +61,14 @@ else
   ln -sf /config/logs /opt/tplink/EAPController/logs
   ln -sf /config/keystore /opt/tplink/EAPController/keystore
 fi
+
+# Checking if custom cert is available
+
+if [ -f "/config/cert/mydomain.p12" ]; then
+  echo "Custom cert is available, installing..."
+  rm /config/keystore/eap.keystore
+  echo tplink | /opt/tplink/EAPController/jre/bin/keytool -importkeystore -deststorepass tplink -destkeystore /opt/tplink/EAPController/keystore/eap.keystore -srckeystore /config/cert/mydomain.p12 -srcstoretype PKCS12
+fi
 EOT
 
 

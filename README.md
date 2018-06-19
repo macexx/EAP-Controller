@@ -43,7 +43,7 @@ docker run -d --net="host"  --privileged --name=eapcontroller -v /mylocal/direct
 
 **Additional notes**
 
-
+* For a custom cert, stop the container and put the cert in "/config/cert" it needs to be named "mydomain.p12" and have the password "tplink"
 * The owner of the config directory needs sufficent permissions (UUID 99 / GID 100). (For manual configs, backups etc on the host system)
 * Mongodb dosent start if "/config" is mapped to an fuse mount, shfs, mergerfs etc...
 * Should be run with network "host" or "macvlan", so it can find the AP´s
