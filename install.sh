@@ -52,7 +52,7 @@ if [ -d "/config/data/map" ]; then
   rm -r /opt/tplink/EAPController/keystore
   ln -sf /config/data /opt/tplink/EAPController/data
   ln -sf /config/logs /opt/tplink/EAPController/logs
-  ln -sf /opt/tplink/EAPController/keystore
+  ln -sf /config/keystore /opt/tplink/EAPController/keystore
 else
   echo "Copying configuration from install directory to host!"
   mv /opt/tplink/EAPController/data /config
