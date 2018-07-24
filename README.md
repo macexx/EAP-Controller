@@ -15,16 +15,60 @@ ONLY X86!!!!!
 **Pull image**
 
 ```
-docker pull mace/eap-controller
+docker pull ruslanguns/eap-controller-docker
 ```
 
 **Run container**
 
 ```
-docker run -d --net="host" --privileged --name=<container name> -v <path for eap config files>:/config -v /etc/localtime:/etc/localtime:ro mace/eap-controller
+docker run -d --net="host" --privileged --name=<container name> -v <path for eap config files>:/config -v /etc/localtime:/etc/localtime:ro ruslanguns/eap-controller-docker
 ```
 Please replace all user variables in the above command defined by <> with the correct values.
 Use --net="host" or --net="macvlan0"
+
+**Run  Docker Compose**
+
+1. Create a new file called "docker-compose.yml" and fill it with the following information:
+
+```
+version: '3'
+services:
+  app:
+    image: ruslanguns/eap-controller-docker
+    restart: always
+    network_mode: "host"
+    ports:
+      - "8088:8088"
+      - "8043:8043"
+      - "29810:29810/udp"
+      - "29811:29811"
+      - "29812:29812"
+      - "29813:29813"
+    volumes:
+      - config:/config
+      - /etc/localtime:/etc/localtime:ro
+    
+volumes:
+    config:
+```
+
+2. Start docker-compose
+```
+docker compose -up -d
+```
+
+3. To stop
+```
+docker compose stop
+```
+4. To delete (must be stopped first)
+```
+docker-compose rm
+```
+then 
+```
+docker-compose down
+```
 
 **Web-UI**
 
@@ -32,7 +76,6 @@ Use --net="host" or --net="macvlan0"
 http://<host ip>:8088
 https://<host ip>:8043
 ```
-
 
 **Example**
 
@@ -52,7 +95,7 @@ docker run -d --net="host"  --privileged --name=eapcontroller -v /mylocal/direct
 * If it dosen´t start make sure there is just one controller on the same subnet (EAP limitataion)
 * This buils is only X86 with TP-Links budeled binaries
 
-**Change notes**
+**Change notes** by @macex
 
 * 2018.06.19
 Add keystore to config for custom certs
