@@ -1,0 +1,19 @@
+version: '3'
+services:
+  odoo:
+    image: ruslanguns/eap-controller-docker
+    restart: always
+    network_mode: "host"
+    ports:
+      - "8088:8088"
+      - "8043:8043"
+      - "29810:29810/udp"
+      - "29811:29811"
+      - "29812:29812"
+      - "29813:29813"
+    volumes:
+      - eap1-controller:/config
+      - /etc/localtime:/etc/localtime:ro
+    
+volumes:
+    eap1-controller:
