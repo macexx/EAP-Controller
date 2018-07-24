@@ -1,8 +1,5 @@
 [![logo](https://i0.wp.com/homesecurity1st.co.za/wp-content/uploads/2017/02/TP-LINK_logo-300x130-1.jpg?fit=300%2C130&ssl=1)](https://www.tp-link.com/common/Spotlight/EAP_controller.html)
 
-Forked from @macexx
-https://github.com/macexx/EAP-Controller
-
 TP-Link EAP Controller
 ==========================
 
