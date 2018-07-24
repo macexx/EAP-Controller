@@ -18,13 +18,13 @@ ONLY X86!!!!!
 **Pull image**
 
 ```
-docker pull ruslanguns/eap-controller-docker
+docker pull mace/eap-controller
 ```
 
 **Run container**
 
 ```
-docker run -d --net="host" --privileged --name=<container name> -v <path for eap config files>:/config -v /etc/localtime:/etc/localtime:ro ruslanguns/eap-controller-docker
+docker run -d --net="host" --privileged --name=<container name> -v <path for eap config files>:/config -v /etc/localtime:/etc/localtime:ro mace/eap-controller
 ```
 Please replace all user variables in the above command defined by <> with the correct values.
 Use --net="host" or --net="macvlan0"
@@ -37,7 +37,7 @@ Use --net="host" or --net="macvlan0"
 version: '3'
 services:
   app:
-    image: ruslanguns/eap-controller-docker
+    image: mace/eap-controller
     restart: always
     network_mode: "host"
     ports:
