@@ -21,7 +21,7 @@ rm -rf /etc/service/sshd /etc/my_init.d/00_regen_ssh_host_keys.sh
 
 # Install Dependencies
 apt-get -qq update
-apt-get -qy install software-properties-common wget net-tools
+apt-get -qy install software-properties-common wget net-tools jsvc
 
 
 #########################################
@@ -73,16 +73,26 @@ fi
 EOT
 
 
-# Start upgrade of base system and start eap
+# Start upgrade of base system 
 cat <<'EOT' > /etc/my_init.d/01_start.sh
 #!/bin/bash
 echo "Upgrading local packages(Security) - This might take awhile(first run takes some extra time)"
 apt-get update -qq && apt-get upgrade -yqq
 echo "Upgrade Done...."
-/etc/init.d/tpeap start
 EOT
 
 chmod -R +x /etc/my_init.d/
+
+
+# Add eap to runit
+mkdir -p /etc/service/eap
+cat <<'EOT' > /etc/service/eap/run
+#!/bin/bash
+
+exec /sbin/setuser root /usr/bin/tpeap start
+EOT
+
+chmod +x /etc/service/eap/run
 
 
 #########################################
@@ -90,7 +100,8 @@ chmod -R +x /etc/my_init.d/
 #########################################
 
 cd /tmp
-wget http://static.tp-link.com/resources/software/EAP_Controller_v2.5.3_linux_x64.tar.gz
-tar zxvf EAP_Controller_v2.5.3_linux_x64.tar.gz
-cd EAP_Controller_v2.5.3_linux_x64
+wget https://static.tp-link.com/2018/201809/20180907/Omada_Controller_V3.0.2_Linux_x64_targz.tar.gz
+tar zxvf Omada_Controller_V3.0.2_Linux_x64_targz.tar.gz
+cd Omada_Controller_V3.0.2_Linux_x64_targz
+sed -i '209d' install.sh
 echo yes | ./install.sh
