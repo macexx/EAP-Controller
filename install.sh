@@ -79,20 +79,13 @@ cat <<'EOT' > /etc/my_init.d/01_start.sh
 echo "Upgrading local packages(Security) - This might take awhile(first run takes some extra time)"
 apt-get update -qq && apt-get upgrade -yqq
 echo "Upgrade Done...."
+chown -R root:root /opt/tplink /config
+/etc/init.d/tpeap start
 EOT
 
 chmod -R +x /etc/my_init.d/
 
 
-# Add eap to runit
-mkdir -p /etc/service/eap
-cat <<'EOT' > /etc/service/eap/run
-#!/bin/bash
-
-exec /sbin/setuser root /usr/bin/tpeap start
-EOT
-
-chmod +x /etc/service/eap/run
 
 
 #########################################
