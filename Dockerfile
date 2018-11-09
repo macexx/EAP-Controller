@@ -1,6 +1,6 @@
 # Builds a docker image for TP-Link´s  EAP Controller
 From phusion/baseimage:latest
-MAINTAINER pixielark <pixielark@gmail.com>
+MAINTAINER Mace Capri <macecapri@gmail.com>
 
 
 ###############################################
