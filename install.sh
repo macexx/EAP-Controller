@@ -96,6 +96,6 @@ cd /tmp
 wget https://static.tp-link.com/2018/201811/20181108/Omada_Controller_v3.0.5_linux_x64.tar.gz.zip 
 unzip Omada_Controller_v3.0.5_linux_x64.tar.gz.zip
 tar zxvf Omada_Controller_v3.0.5_linux_x64.tar.gz
-cd Omada_Controller_V3.0.2_Linux_x64_targz
+cd Omada_Controller_V3.0.5_Linux_x64_targz
 sed -i '209d' install.sh
 echo yes | ./install.sh
