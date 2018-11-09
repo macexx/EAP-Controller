@@ -53,6 +53,7 @@ docker run -d --net="host"  --privileged --name=eapcontroller -v /mylocal/direct
 * This buils is only X86 with TP-Links budeled binaries
 
 **Change notes**
+
 *2018.11.08
 Upgrade to latest EAP-Controller (3.0.5)
 
