@@ -21,7 +21,7 @@ rm -rf /etc/service/sshd /etc/my_init.d/00_regen_ssh_host_keys.sh
 
 # Install Dependencies
 apt-get -qq update
-apt-get -qy install software-properties-common wget net-tools jsvc
+apt-get -qy install software-properties-common wget net-tools jsvc unzip
 
 
 #########################################
@@ -93,8 +93,9 @@ chmod -R +x /etc/my_init.d/
 #########################################
 
 cd /tmp
-wget https://static.tp-link.com/2018/201809/20180907/Omada_Controller_V3.0.2_Linux_x64_targz.tar.gz
-tar zxvf Omada_Controller_V3.0.2_Linux_x64_targz.tar.gz
-cd Omada_Controller_V3.0.2_Linux_x64_targz
+wget https://static.tp-link.com/2018/201811/20181108/Omada_Controller_v3.0.5_linux_x64.tar.gz.zip 
+unzip Omada_Controller_v3.0.5_linux_x64.tar.gz.zip
+tar zxvf Omada_Controller_v3.0.5_linux_x64.tar.gz
+cd Omada_Controller_v3.0.5_linux_x64
 sed -i '209d' install.sh
 echo yes | ./install.sh

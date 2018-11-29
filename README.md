@@ -54,6 +54,10 @@ docker run -d --net="host"  --privileged --name=eapcontroller -v /mylocal/direct
 
 **Change notes**
 
+
+* 2018.11.29
+Upgrade to latest EAP-Controller (3.0.5)
+
 * 2018.09.24
 Upgrade to latest EAP-Controller (3.0.2)
 Remove startup from build(greatly reduces build time)
