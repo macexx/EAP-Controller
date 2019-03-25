@@ -93,9 +93,7 @@ chmod -R +x /etc/my_init.d/
 #########################################
 
 cd /tmp
-wget https://static.tp-link.com/2019/201903/20190325/Omada_Controller_v3.1.4_linux_x64.tar.gz.zip
-unzip Omada_Controller_v3.1.4_linux_x64.tar.gz.zip
-tar zxvf Omada_Controller_v3.1.4_linux_x64.tar.gz
-cd Omada_Controller_v3.1.4_linux_x64
-sed -i '209d' install.sh
-echo yes | ./install.sh
+wget https://static.tp-link.com/2019/201903/20190325/omada_v3.1.4_linux_x64_20190228110851.deb.zip
+unzip omada_v3.1.4_linux_x64_20190228110851.deb.zip
+dpkg -i omada_v3.1.4_linux_x64_20190228110851.deb.zip
+echo yes | apt-get install -f
