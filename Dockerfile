@@ -18,6 +18,9 @@ CMD ["/sbin/my_init"]
 ###############################################
 COPY install.sh /tmp/
 RUN chmod +x /tmp/install.sh && sleep 1 && /tmp/install.sh && rm /tmp/install.sh
+RUN \
+        ln -fs /usr/share/zoneinfo/America/Vancouver /etc/localtime && \
+        dpkg-reconfigure -f noninteractive tzdata
 
 
 ###############################################
