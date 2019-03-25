@@ -95,5 +95,5 @@ chmod -R +x /etc/my_init.d/
 cd /tmp
 wget https://static.tp-link.com/2019/201903/20190325/omada_v3.1.4_linux_x64_20190228110851.deb.zip
 unzip omada_v3.1.4_linux_x64_20190228110851.deb.zip
-dpkg -i omada_v3.1.4_linux_x64_20190228110851.deb.zip
+dpkg -i omada_v3.1.4_linux_x64_20190228110851.deb
 echo yes | apt-get install -f
