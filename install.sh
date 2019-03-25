@@ -47,6 +47,7 @@ mkdir -p /config/cert
 
 if [ -d "/config/data/map" ]; then
   echo "Config exists, importing previous configuration!"
+  chown -R omada /config
   rm -r /opt/tplink/EAPController/data
   rm -r /opt/tplink/EAPController/logs
   rm -r /opt/tplink/EAPController/keystore
@@ -58,6 +59,7 @@ else
   mv /opt/tplink/EAPController/data /config
   mv /opt/tplink/EAPController/logs /config
   mv /opt/tplink/EAPController/keystore /config
+  chown -R omada /config
   ln -sf /config/data /opt/tplink/EAPController/data
   ln -sf /config/logs /opt/tplink/EAPController/logs
   ln -sf /config/keystore /opt/tplink/EAPController/keystore
