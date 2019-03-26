@@ -57,6 +57,9 @@ if [ -d "/config/data/map" ]; then
   ln -sf /config/logs /opt/tplink/EAPController/logs
   ln -sf /config/keystore /opt/tplink/EAPController/keystore
   ln -sf /config/work /opt/tplink/EAPController/work
+  chown -R omada:omada /opt/tplink/EAPController/data
+  chown -R omada:omada /opt/tplink/EAPController/logs
+  chown -R omada:omada /opt/tplink/EAPController/work
 else
   echo "Copying configuration from install directory to host!"
   mv /opt/tplink/EAPController/data /config
@@ -68,6 +71,9 @@ else
   ln -sf /config/logs /opt/tplink/EAPController/logs
   ln -sf /config/keystore /opt/tplink/EAPController/keystore
   ln -sf /config/work /opt/tplink/EAPController/work
+  chown -R omada:omada /opt/tplink/EAPController/data
+  chown -R omada:omada /opt/tplink/EAPController/logs
+  chown -R omada:omada /opt/tplink/EAPController/work
 fi
 
 # Checking if custom cert is available
