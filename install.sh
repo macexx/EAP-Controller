@@ -55,7 +55,7 @@ if [ -d "/config/data/map" ]; then
   ln -sf /config/data /opt/tplink/EAPController/data
   ln -sf /config/logs /opt/tplink/EAPController/logs
   ln -sf /config/keystore /opt/tplink/EAPController/keystore
-  ln -sf /config/work /opt/tplink/EAPController/work
+  ln -sf /config/keystore /opt/tplink/EAPController/work
 else
   echo "Copying configuration from install directory to host!"
   mv /opt/tplink/EAPController/data /config
@@ -65,7 +65,7 @@ else
   ln -sf /config/data /opt/tplink/EAPController/data
   ln -sf /config/logs /opt/tplink/EAPController/logs
   ln -sf /config/keystore /opt/tplink/EAPController/keystore
-  ln -sf /config/work /opt/tplink/EAPController/work
+  ln -sf /config/keystore /opt/tplink/EAPController/work
 fi
 
 # Checking if custom cert is available
@@ -98,9 +98,11 @@ chmod -R +x /etc/my_init.d/
 #########################################
 
 cd /tmp
-wget https://static.tp-link.com/2019/201903/20190326/Omada_Controller_v3.1.4_linux_x64.tar.gz.zip
+wget https://static.tp-link.com/2019/201903/20190326/Omada_Controller_v3.1.4_linux_x64.tar.gz.zip 
 unzip Omada_Controller_v3.1.4_linux_x64.tar.gz.zip
-tar zxvf Omada_Controller_v3.1.4_linux_x64.tar.gz
+mkdir Omada_Controller_v3.1.4_linux_x64 && tar zxvf Omada_Controller_v3.1.4_linux_x64.tar.gz -C Omada_Controller_v3.1.4_linux_x64 --strip-components 1
+chown -R root:root Omada_Controller_v3.1.4_linux_x64
 cd Omada_Controller_v3.1.4_linux_x64
+chmod +x install.sh
 sed -i '209d' install.sh
 echo yes | ./install.sh
