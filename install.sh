@@ -42,6 +42,7 @@ mkdir -p /config/logs
 mkdir -p /config/data
 mkdir -p /config/keystore
 mkdir -p /config/cert
+mkdir -p /config/work
 
 # Checking if previous configuration exists
 
@@ -51,18 +52,22 @@ if [ -d "/config/data/map" ]; then
   rm -r /opt/tplink/EAPController/data
   rm -r /opt/tplink/EAPController/logs
   rm -r /opt/tplink/EAPController/keystore
+  rm -r /opt/tplink/EAPController/work
   ln -sf /config/data /opt/tplink/EAPController/data
   ln -sf /config/logs /opt/tplink/EAPController/logs
   ln -sf /config/keystore /opt/tplink/EAPController/keystore
+  ln -sf /config/work /opt/tplink/EAPController/work
 else
   echo "Copying configuration from install directory to host!"
   mv /opt/tplink/EAPController/data /config
   mv /opt/tplink/EAPController/logs /config
   mv /opt/tplink/EAPController/keystore /config
+  mv /opt/tplink/EAPController/work /config
   chown -R omada:omada /config
   ln -sf /config/data /opt/tplink/EAPController/data
   ln -sf /config/logs /opt/tplink/EAPController/logs
   ln -sf /config/keystore /opt/tplink/EAPController/keystore
+  ln -sf /config/work /opt/tplink/EAPController/work
 fi
 
 # Checking if custom cert is available
