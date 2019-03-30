@@ -85,7 +85,7 @@ echo "Upgrading local packages(Security) - This might take awhile(first run take
 apt-get update -qq && apt-get upgrade -yqq
 echo "Upgrade Done...."
 chown -R root:root /opt/tplink /config
-/etc/init.d/tpeap start
+#/etc/init.d/tpeap start
 EOT
 
 chmod -R +x /etc/my_init.d/
