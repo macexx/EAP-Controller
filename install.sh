@@ -42,6 +42,7 @@ mkdir -p /config/logs
 mkdir -p /config/data
 mkdir -p /config/keystore
 mkdir -p /config/cert
+mkdir -p /config/work
 
 # Checking if previous configuration exists
 
@@ -50,17 +51,21 @@ if [ -d "/config/data/map" ]; then
   rm -r /opt/tplink/EAPController/data
   rm -r /opt/tplink/EAPController/logs
   rm -r /opt/tplink/EAPController/keystore
+  rm -r /opt/tplink/EAPController/work
   ln -sf /config/data /opt/tplink/EAPController/data
   ln -sf /config/logs /opt/tplink/EAPController/logs
   ln -sf /config/keystore /opt/tplink/EAPController/keystore
+  ln -sf /config/work /opt/tplink/EAPController/work
 else
   echo "Copying configuration from install directory to host!"
   mv /opt/tplink/EAPController/data /config
   mv /opt/tplink/EAPController/logs /config
   mv /opt/tplink/EAPController/keystore /config
+  mv /opt/tplink/EAPController/work /config
   ln -sf /config/data /opt/tplink/EAPController/data
   ln -sf /config/logs /opt/tplink/EAPController/logs
   ln -sf /config/keystore /opt/tplink/EAPController/keystore
+  ln -sf /config/work /opt/tplink/EAPController/work
 fi
 
 # Checking if custom cert is available
@@ -93,9 +98,12 @@ chmod -R +x /etc/my_init.d/
 #########################################
 
 cd /tmp
-wget https://static.tp-link.com/2018/201811/20181108/Omada_Controller_v3.0.5_linux_x64.tar.gz.zip 
-unzip Omada_Controller_v3.0.5_linux_x64.tar.gz.zip
-tar zxvf Omada_Controller_v3.0.5_linux_x64.tar.gz
-cd Omada_Controller_v3.0.5_linux_x64
+wget https://static.tp-link.com/2019/201903/20190326/Omada_Controller_v3.1.4_linux_x64.tar.gz.zip 
+unzip Omada_Controller_v3.1.4_linux_x64.tar.gz.zip
+mkdir /tmp/omada
+tar zxvf Omada_Controller_v3.1.4_linux_x64.tar.gz -C /tmp/omada --strip-components 1
+chown -R root:root /tmp/omada
+cd /tmp/omada
+chmod +x install.sh
 sed -i '209d' install.sh
 echo yes | ./install.sh
