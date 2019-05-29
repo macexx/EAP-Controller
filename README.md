@@ -8,7 +8,7 @@ EAP Controller - https://www.tp-link.com/common/Spotlight/EAP_controller.html
 
 
 
-Running on the latest Phusion release (ubuntu 16.04), with EAP Controller v3.1.4
+Running on the latest Phusion release (ubuntu 16.04), with EAP Controller v3.1.13
 ONLY X86!!!!!
 
 
@@ -34,12 +34,6 @@ https://<host ip>:8043
 ```
 
 
-**Example**
-
-```
-docker run -d --net="host"  --privileged --name=eapcontroller -v /mylocal/directory/fordata:/config -v /etc/localtime:/etc/localtime:ro mace/eap-controller
-```
-
 
 **Additional notes**
 
@@ -53,6 +47,9 @@ docker run -d --net="host"  --privileged --name=eapcontroller -v /mylocal/direct
 * This buils is only X86 with TP-Links budeled binaries
 
 **Change notes**
+
+* 2019.05.28
+Upgrade to latest EAP-Controller (3.1.13)
 
 * 2019.03.25
 Upgrade to latest EAP-Controller (3.1.4)
