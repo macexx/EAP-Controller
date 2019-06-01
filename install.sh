@@ -103,4 +103,5 @@ tar zxvf Omada_Controller_v3.1.13_linux_x64.tar.gz
 chown -R root:root /tmp/Omada_Controller_v3.1.13_linux_x64
 cd /tmp/Omada_Controller_v3.1.13_linux_x64
 chmod +x install.sh
+sed -i '203d' install.sh
 echo yes | ./install.sh
