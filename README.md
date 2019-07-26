@@ -8,7 +8,7 @@ EAP Controller - https://www.tp-link.com/common/Spotlight/EAP_controller.html
 
 
 
-Running on the latest Phusion release (ubuntu 16.04), with EAP Controller v3.1.13
+Running on the latest Phusion release (ubuntu 16.04), with EAP Controller v3.2.1
 ONLY X86!!!!!
 
 
@@ -47,6 +47,9 @@ https://<host ip>:8043
 * This buils is only X86 with TP-Links budeled binaries
 
 **Change notes**
+
+* 2019.07.26
+Upgrade to latest EAP-Controller (3.2.1)
 
 * 2019.05.28
 Upgrade to latest EAP-Controller (3.1.13)

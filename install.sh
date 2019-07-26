@@ -93,8 +93,8 @@ chmod -R +x /etc/my_init.d/
 #########################################
 
 cd /tmp
-wget https://static.tp-link.com/2019/201905/20190527/Omada_Controller_v3.1.13_linux_x64.tar.gz
-tar zxvf Omada_Controller_v3.1.13_linux_x64.tar.gz
-cd Omada_Controller_v3.1.13_linux_x64
+wget https://static.tp-link.com/2019/201907/20190726/Omada_Controller_v3.2.1_linux_x64.tar.gz
+tar zxvf Omada_Controller_v3.2.1_linux_x64.tar.gz
+cd Omada_Controller_v3.2.1_linux_x64/Omada_Controller_v3.2.1_linux_x64
 sed -i '209d' install.sh
 echo yes | ./install.sh
