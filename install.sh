@@ -21,7 +21,7 @@ rm -rf /etc/service/sshd /etc/my_init.d/00_regen_ssh_host_keys.sh
 
 # Install Dependencies
 apt-get -qq update
-apt-get -qy install software-properties-common wget net-tools jsvc unzip
+apt-get -qy install software-properties-common wget net-tools jsvc
 
 
 #########################################
@@ -73,7 +73,7 @@ fi
 if [ -f "/config/cert/mydomain.p12" ]; then
   echo "Custom cert is available, installing..."
   rm /config/keystore/eap.keystore
-  echo tplink | /opt/tplink/EAPController/jre/bin/keytool -importkeystore -deststorepass tplink -destkeystore /opt/tplink/EAPController/keystore/eap.keystore -srckeystore /config/cert/mydomain.p12 -srcstoretype PKCS12
+echo tplink | /opt/tplink/EAPController/jre/bin/keytool -importkeystore -srckeystore /config/cert/mydomain.p12 -srcstoretype PKCS12 -destkeystore /opt/tplink/EAPController/keystore/eap.keystore -deststorepass tplink -deststoretype pkcs12
 fi
 EOT
 
@@ -98,10 +98,10 @@ chmod -R +x /etc/my_init.d/
 #########################################
 
 cd /tmp
-wget https://static.tp-link.com/2019/201905/20190527/Omada_Controller_v3.1.13_linux_x64.tar.gz
-tar zxvf Omada_Controller_v3.1.13_linux_x64.tar.gz
-chown -R root:root /tmp/Omada_Controller_v3.1.13_linux_x64
-cd /tmp/Omada_Controller_v3.1.13_linux_x64
+wget https://static.tp-link.com/2019/201907/20190726/Omada_Controller_v3.2.1_linux_x64.tar.gz
+tar zxvf Omada_Controller_v3.2.1_linux_x64.tar.gz --strip-components=1
+chown -R root:root /tmp/Omada_Controller_v3.2.1_linux_x64
+cd /tmp/Omada_Controller_v3.2.1_linux_x64
 chmod +x install.sh
 sed -i '203d' install.sh
 echo yes | ./install.sh

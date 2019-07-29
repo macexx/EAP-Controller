@@ -54,6 +54,11 @@ docker run -d --net="host"  --privileged --name=eapcontroller -v /mylocal/direct
 
 **Change notes**
 
+* 2019.07.29
+Remove unneded packages
+Fix - keytool command to propper.(PK12)
+Upgrade to latest EAP-Controller (3.2.1)
+
 * 2019.06.02
 Upgrade to latest EAP-Controller (3.1.13)
 
