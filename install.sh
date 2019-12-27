@@ -83,7 +83,7 @@ cat <<'EOT' > /etc/my_init.d/01_start.sh
 #!/bin/bash
 echo "Upgrading local packages(Security) - This might take awhile(first run takes some extra time)"
 apt-get update -qq
-apt-get upgrade -yqq -o Dpkg::Options::="--force-confdef" && \`
+apt-get upgrade -y -o Dpkg::Options::="--force-confdef"
 echo "Upgrade Done...."
 chown -R root:root /opt/tplink /config
 /etc/init.d/tpeap start
