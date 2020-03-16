@@ -106,3 +106,4 @@ cd Omada_Controller_v3.2.6_linux_x64
 chmod +x install.sh
 sed -i '203d' install.sh
 echo yes | ./install.sh
+rm -R /tmp/Omada_Controller*
