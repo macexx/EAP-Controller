@@ -54,6 +54,9 @@ docker run -d --net="host"  --privileged --name=eapcontroller -v /mylocal/direct
 
 **Change notes**
 
+* 2022.02.12
+Upgrade to latest EAP-Controller (3.2.16)
+
 * 2020.04.29
 Upgrade to latest EAP-Controller (3.2.10)
 
