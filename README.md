@@ -8,8 +8,7 @@ EAP Controller - https://www.tp-link.com/common/Spotlight/EAP_controller.html
 
 
 
-Running on the latest Phusion release (ubuntu 16.04), with EAP Controller v2.5.3
-ONLY X86!!!!!
+Running on the latest Phusion release (ubuntu 20.04), with EAP Controller v3.2.16
 
 
 **Pull image**
